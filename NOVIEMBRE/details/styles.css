@@ -1,0 +1,26 @@
+
+body{
+    background-color: #333;
+    color: #ddd;
+}
+details {
+    width: 250px;
+    margin: auto;
+    border: 10px solid #666;
+    border-radius: 4px;
+    background-color: #3a3a3a;
+    padding: 10px;
+}
+summary {
+    background-color: transredparent;
+}
+details[open] {
+    border: 5px solid #ddd;
+    background-color: #444;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+
+

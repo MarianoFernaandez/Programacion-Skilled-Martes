@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Avanzado y Enlaces</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>Formulario Avanzado + Enlaces Avanzados</h1>
+
+<form>
+
+    <fieldset>
+        <legend>Datos personales</legend>
+
+        <div class="form_input">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" placeholder="Juan Pérez">
+        </div>
+
+        <div class="form_input">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" placeholder="email@gmail.com">
+        </div>
+
+        <div class="form_input">
+            <label for="pais">País</label>
+            <select id="pais">
+                <option>Argentina</option>
+                <option>Chile</option>
+                <option>Uruguay</option>
+            </select>
+        </div>
+
+        <div class="form_input">
+            <label for="ciudad">Ciudad</label>
+            <input list="ciudades" id="ciudad">
+            <datalist id="ciudades">
+                <option value="Buenos Aires">
+                <option value="Rosario">
+                <option value="Córdoba">
+            </datalist>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Mensaje</legend>
+
+        <div class="form_input">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" rows="4" placeholder="Escribí tu mensaje"></textarea>
+        </div>
+
+        <div class="form_input">
+            <label>
+                Acepto los 
+                <a href="terms.html" target="_blank" rel="noopener noreferrer">
+                    términos y condiciones
+                </a>
+                <input type="checkbox">
+            </label>
+        </div>
+    </fieldset>
+
+    <input type="submit" value="Enviar">
+</form>
+
+
+<details>
+    <summary>Enlaces especiales</summary>
+    <p>
+        📧 <a href="mailto:profe@gmail.com">Enviar un mail</a><br>
+        📞 <a href="tel:+5491123456789">Llamar por teléfono</a><br>
+        📄 <a href="terms.html" download>Descargar términos</a><br>
+        🌐 <a href="https://hola.com" target="_blank" rel="noopener">Página externa segura</a>
+    </p>
+</details>
+
+</body>
+</html>
