@@ -1,0 +1,113 @@
+/* --- Estilo general --- */
+* {
+    box-sizing: border-box;/* evitar el scroll */
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* --- Header --- */
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    height: 20vh; /* ocupa el 20% de la pantalla */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* --- Main (dividido en 2 secciones iguales) --- */
+main {
+    height: 70vh;               /* ocupa el 70% de la pantalla */
+    display: flex;              /* usa flexbox */
+    flex-direction: column;     /* las secciones una debajo de otra */
+}
+
+/* Sección del formulario */
+.formulario {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 320px;
+    margin: 0 auto; /* Centra horizontalmente */
+    box-shadow: 0 0 10px black;
+}
+
+.contenedor-form {
+    height: 70vh;              /* mismo alto que el main */
+    display: flex;
+    justify-content: center;   /* centro horizontal */
+    align-items: center;       /* centro vertical */
+}
+
+/* Campos del formulario */
+label {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+button {
+    margin-top: 15px;
+    width: 100%;
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #357abd;
+}
+
+/* --- Secciones principales --- */
+.pantalla {
+    flex: 1;                    /* cada sección ocupa la mitad del main */
+    display: flex;
+    align-items: center;        /* centra verticalmente */
+    justify-content: center;    /* centra horizontalmente */
+    font-size: 1.5em;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    height: 10vh;
+}

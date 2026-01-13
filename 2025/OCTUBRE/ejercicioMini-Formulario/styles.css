@@ -1,0 +1,119 @@
+/* =============================
+    ESTILOS GENERALES
+============================= */
+body {
+    background-color: #f2f2f2; /* Color de fondo general */
+    font-family: Arial, Helvetica, sans-serif; /* Tipografía principal */
+    color: #333; /* Color del texto */
+    margin: 0;  /* Quita espacio que trae el navegador por defecto */
+    padding: 0;
+
+    /* === FLEXBOX EN EL BODY ===
+    Usamos flex para organizar la página en columnas:
+    1) Header arriba
+    2) Main en el medioBueno
+    3) Footer abajo
+
+    Gracias a flex-direction: column, el contenido se acomoda verticalmente.
+
+    min-height: 100vh asegura que el body ocupe siempre
+    el alto completo de la pantalla, incluso si hay poco contenido.
+    */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* =============================
+    ENCABEZADO
+============================= */
+header {
+    background-color: #4a90e2; /* Fondo azul */
+    color: white; /* Texto blanco */
+    text-align: center; /* Centra el texto */
+    padding: 20px 0; /* Más espacio arriba y abajo */
+}
+
+/* =============================
+    CONTENIDO PRINCIPAL
+============================= */
+main {
+    /* flex: 1 hace que esta parte ocupe TODO el espacio disponible
+    empujando el footer hacia abajo.
+    Es decir: header queda arriba, footer abajo, y main crece en el medio.
+    */
+    flex: 1; /* Sigue empujando el footer abajo */
+
+    display: flex; /* Activamos flex SOLO dentro del main */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+/* =============================
+    FORMULARIO
+============================= */
+.formulario {
+    background-color: white; /* Caja blanca */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    width: 400px; /* Ancho fijo del formulario */
+
+    /* Centrado horizontal sin flex:
+    auto en izquierda y derecha lo centra automáticamente.
+    */
+    margin: 0 auto;
+
+    /* Sombra para que la caja se destaque */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* ===== LABELS ===== */
+label {
+    display: block; /* Hace que el label ocupe toda la línea */
+    margin-top: 10px; /* Espacio entre cada campo */
+    font-size: 14px;
+}
+
+/* ===== CAMPOS DE TEXTO Y TEXTAREA ===== */
+input, textarea {
+    width: 100%; /* Todos los campos ocupan el ancho de la caja */
+    padding: 15px; /* Espaciado interno */
+    margin-top: 5px; /* Separación del label */
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 15px;
+    box-sizing: border-box; /* Evita que el padding agrande el input */
+}
+
+/* ===== BOTÓN ===== */
+button {
+    margin-top: 15px; /* Separación del textarea */
+    width: 100%; /* Botón del mismo tamaño que los inputs */
+    background-color: #4a90e2; /* Color del botón */
+    color: white; /* Texto blanco */
+    padding: 14px; /* Tamaño del botón */
+    font-size: 15px;
+    border: none; /* Sin bordes */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a "mano" */
+}
+
+button:hover {
+    background-color: #357abd; /* Efecto cuando pasamos el mouse */
+}
+
+/* =============================
+    FOOTER (Sticky gracias a Flex)
+============================= */
+footer {
+    background-color: #333; /* Fondo oscuro */
+    color: white; /* Texto blanco */
+    text-align: center; /* Centrado de texto */
+    font-size: 12px;
+    padding: 20px 0;
+
+    /* margin-top: auto funciona SOLO porque body es display:flex.
+    Empuja el footer hacia abajo del todo, aunque el contenido sea corto.
+    */
+    margin-top: auto;
+}
