@@ -1,15 +1,23 @@
-* {
+:root {
+    --color-principal: #F5E7C6;
+    --color-secundario: #FA8112;
+    --color-terciario: #FAF3E1;
+    --color-texto: #222222;
+}
+
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', sans-serif;
+    background-color: var(--color-principal);
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ffffff;
+    background-color: var(--color-secundario);
     padding: 15px 10%;
     box-shadow: 0 2px 10px rgb(0, 0, 0, 0.1);
     position: sticky;
