@@ -3,45 +3,255 @@
     --color-secundario: #FA8112;
     --color-terciario: #FAF3E1;
     --color-texto: #222222;
+    --color-marte: #ff4500;
+    --transicion: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto rebote profesional */
 }
 
+/* Animación de fondo sutil */
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: var(--color-principal);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: linear-gradient(-45deg, #F5E7C6, #f7d794, #FAF3E1);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* NAVBAR MEJORADA */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: var(--color-secundario);
-    padding: 15px 10%;
-    box-shadow: 0 2px 10px rgb(0, 0, 0, 0.1);
+    padding: 10px 5%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-.nav-links {
-    list-style: none;
+.navbar h1 {
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Efecto curioso: el título se inclina al pasar el mouse */
+.navbar h1:hover {
+    transform: rotate(-2deg) scale(1.05);
+}
+
+.navbar ul {
     display: flex;
+    list-style: none;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
 }
 
-.nav-links li {
-    margin: 0 20px;
-}
-
-.nav-links a {
+.navbar a {
+    color: white;
     text-decoration: none;
-    color: #555;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    font-weight: bold;
+    font-size: 1rem;
+    position: relative; /* Para la línea animada */
+    transition: var(--transicion);
 }
 
-.nav-links a:hover {
-    color: 007bff;
+/* En lugar de solo opacidad, añadimos una línea que crece */
+.navbar a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
 }
 
+.navbar a:hover {
+    opacity: 1; /* Mantener brillante */
+    text-shadow: 0 0 8px rgba(255,255,255,0.5);
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+/* CONTENEDOR DEL FORMULARIO */
+.form-container {
+    background-color: var(--color-terciario);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 650px;
+    margin: 40px auto; 
+    transition: var(--transicion);
+    
+    /* Animación de entrada: aparece flotando */
+    animation: floatIn 0.8s ease-out;
+}
+
+/* Efecto de elevación con un sutil cambio de color en el borde */
+.form-container:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(250, 129, 18, 0.2);
+    border: 1px solid rgba(250, 129, 18, 0.2);
+}
+
+@keyframes floatIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Contenedor del Formulario con efecto de entrada */
+.form-container {
+    background-color: var(--color-terciario);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 650px;
+    margin: 60px auto;
+    border: 1px solid rgba(250, 129, 18, 0.1);
+    animation: revealForm 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: var(--transicion);
+}
+
+@keyframes revealForm {
+    0% { opacity: 0; transform: scale(0.8) translateY(50px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.form-container:hover {
+    box-shadow: 0 30px 60px rgba(250, 129, 18, 0.2);
+}
+
+.form-tittle {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: var(--color-secundario); /* Color sólido de base */
+    
+    /* Efecto de relieve y profundidad */
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+    position: relative;
+    
+    /* Animación de entrada y brillo */
+    animation: glowTitle 3s ease-in-out infinite alternate;
+    cursor: default;
+}
+
+/* Animación curiosa: El título brilla y cambia de color sutilmente */
+@keyframes glowTitle {
+    from {
+        color: var(--color-secundario);
+        text-shadow: 0 0 5px rgba(250, 129, 18, 0.2);
+        transform: scale(1);
+    }
+    to {
+        color: #ff4500; /* Un tono más rojizo (Marte) */
+        text-shadow: 0 0 15px rgba(250, 129, 18, 0.6), 
+                    2px 2px 0px rgba(0,0,0,0.1);
+        transform: scale(1.02); /* Crece sutilmente */
+    }
+}
+
+.form-group:hover .form-label {
+    color: var(--color-secundario);
+    transform: translateX(5px);
+    transition: all 0.3s ease;
+}
+
+.form-label {
+    transition: all 0.3s ease;
+}
+
+/* Campos de entrada con movimiento de foco */
+.form-group {
+    margin-bottom: 1.8rem;
+    position: relative;
+}
+
+.form-input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0d0b0;
+    border-radius: 12px;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-sizing: border-box;
+    transition: var(--transicion);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-secundario);
+    background-color: #fff;
+    transform: translateX(10px); /* Se desplaza un poco a la derecha al escribir */
+    box-shadow: -10px 0px 0px var(--color-secundario); /* Línea decorativa lateral */
+}
+
+/* Botón "Propulsor" */
+.form-button {
+    width: 100%;
+    background: linear-gradient(45deg, var(--color-secundario), #ff4500);
+    color: white;
+    cursor: pointer;
+    border: none;
+    padding: 1.2rem;
+    font-size: 1.2rem;
+    font-weight: 900;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: var(--transicion);
+    box-shadow: 0 4px 15px rgba(250, 129, 18, 0.3);
+}
+
+.form-button:hover {
+    letter-spacing: 5px; /* Se expande el texto */
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(250, 129, 18, 0.5);
+}
+
+.form-button:active {
+    transform: translateY(1px);
+}
+
+/* Efecto para el Checkbox */
+.form-checkbox {
+    transition: var(--transicion);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.form-checkbox:hover {
+    background: rgba(250, 129, 18, 0.05);
+}
+
+/* Micro-animación para el select multiple */
+select[multiple] option:hover {
+    background-color: var(--color-secundario) !important;
+    color: white;
+}
